@@ -82,6 +82,6 @@ Get-ChildItem -Path $mods -Filter *.jar | ForEach-Object {
 
 if ($unknownMods.Count -gt 0) {
     Write-Host ""
-    Write-Host "Unknown Mods:" -ForegroundColor Yellow
+    Write-Host "Suspicious Mods:" -ForegroundColor Yellow
     $unknownMods | ForEach-Object { Write-Host "- $_" -ForegroundColor Red }
 }
