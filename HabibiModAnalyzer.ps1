@@ -1,6 +1,6 @@
 Write-Host "Habibi Mod Analyzer" -ForegroundColor Yellow
 Write-Host "Made by " -ForegroundColor DarkGray -NoNewline
-Write-Host "HadronCollision" -ForegroundColor DarkRed
+Write-Host "HadronCollision"
 Write-Host ""
 
 Write-Host "Enter path to mods folder: " -ForegroundColor DarkYellow -NoNewline
