@@ -1,16 +1,19 @@
-param (
-    [string]$mods
-)
-
-if (-not $mods) {
-    Write-Host "Missing mods folder path. Specify it using -mods parameter." -ForegroundColor Red
-	exit 1
-}
-
 Write-Host "Habibi Mod Analyzer" -ForegroundColor Yellow
 Write-Host "Made by " -ForegroundColor DarkGray -NoNewline
 Write-Host "HadronCollision" -ForegroundColor DarkRed
 Write-Host ""
+
+Write-Host "Enter path to mods folder: " -ForegroundColor DarkYellow -NoNewline
+Write-Host "(press enter for default)" -ForegroundColor DarkGray
+$mods = Read-Host "Path"
+Write-Host ""
+
+if (-not $mods) {
+    $mods = Join-Path -Path $env:APPDATA -ChildPath ".minecraft\mods"
+	Write-Host "Press enter to continue with " -ForegroundColor DarkYellow -NoNewline
+	Write-Host $mods -ForegroundColor DarkGray
+	Read-Host
+}
 
 function Get-FileHashSHA1 {
     param (
@@ -56,6 +59,7 @@ if (-not (Test-Path $mods -PathType Container)) {
 $fileNames = @()
 $modrinthNames = @()
 $modrinthLinks = @()
+$unknownMods = @()
 
 Get-ChildItem -Path $mods -Filter *.jar | ForEach-Object {
     $file = $_
@@ -70,6 +74,14 @@ Get-ChildItem -Path $mods -Filter *.jar | ForEach-Object {
     if ($modData.Slug -ne "") {
 		Write-Host "Modrinth: $($modData.Name)" -ForegroundColor Green
         Write-Host "Link: https://modrinth.com/mod/$($modData.Slug)" -ForegroundColor DarkGray
-    }
+    } else {
+		$unknownMods += $file.Name
+	}
     Write-Host "----------"
+}
+
+if ($unknownMods.Count -gt 0) {
+    Write-Host ""
+    Write-Host "Unknown Mods:" -ForegroundColor Yellow
+    $unknownMods | ForEach-Object { Write-Host "- $_" -ForegroundColor Red }
 }
