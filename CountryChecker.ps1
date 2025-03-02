@@ -4,7 +4,7 @@ Write-Host "Made by " -ForegroundColor DarkGray -NoNewline
 Write-Host "HadronCollision"
 Write-Host ""
 
-$vpn = Get-NetAdapter | Where-Object { -not $_.MacAddress } | Select-Object -ExpandProperty Name
+$vpn = Get-NetAdapter | Where-Object { -not $_.MacAddress -and $_.Status -eq "Up" } | Select-Object -ExpandProperty Name
 
 if ($vpn) {
     Write-Host "VPN Detected!!!" -ForegroundColor Red
