@@ -13,7 +13,7 @@ if ($vpn) {
     exit
 }
 
-$ipInfo = curl ipinfo.io | ConvertFrom-Json
+$ipInfo = Invoke-RestMethod -Uri "https://ipinfo.io" -UseBasicParsing
 if ($ipInfo -and $ipInfo.country) {
     Write-Host "Country: $($ipInfo.country)" -ForegroundColor DarkCyan
 } else {
