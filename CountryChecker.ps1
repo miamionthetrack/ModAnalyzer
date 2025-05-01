@@ -8,7 +8,7 @@ $vpn = Get-NetAdapter | Where-Object { -not $_.MacAddress } | Select-Object -Exp
 
 $ipInfo = Invoke-RestMethod -Uri "https://api.ip2location.io/" -UseBasicParsing
 if ($ipInfo -and $ipInfo.country_name) {
-    Write-Host "Country: $($ipInfo.country_name)" -ForegroundColor Cyan
+    Write-Host "Country: $($ipInfo.country_name)" -ForegroundColor DarkCyan
 } else {
     Write-Host "Could not retrieve country information."
 }
