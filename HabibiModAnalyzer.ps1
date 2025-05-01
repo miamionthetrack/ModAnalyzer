@@ -37,7 +37,6 @@ if ($process) {
 $bannedMods = @(
     @{ name = "Wurst Client"; value = "- wurst" },
     @{ name = "Meteor Client"; value = "- meteor-client" },
-    @{ name = "Francium Client"; value = "- org_apache"},
     @{ name = "Doomsday Client"; value = "- dd"},
 	@{ name = "Prestige Client"; value = "- prestige"},
 	@{ name = "Inertia Client"; value = "- inertia"},
