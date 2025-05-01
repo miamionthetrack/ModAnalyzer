@@ -23,7 +23,7 @@ Write-Host ""
 
 $motherboardId = (Get-WmiObject win32_baseboard).SerialNumber
 $disksId = (Get-Disk).SerialNumber
-$hwid = [Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes("$motherboardId $disksId"))
+$hwid = [Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes("$motherboardId $disksId")).Replace("=", "")
 Write-Host "HWID: $hwid" -ForegroundColor Cyan
 
 Write-Host ""
