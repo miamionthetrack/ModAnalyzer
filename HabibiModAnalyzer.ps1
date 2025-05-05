@@ -78,6 +78,7 @@ $cheatStrings = @(
     @{ name = "Asteria"; value = "AsteriaSettingsModule" },
     @{ name = "VirginClient"; value = "Virgin.class" },
     @{ name = "ModuleManager"; value = "ModuleManager.class" }
+    @{ name = "Francium AutoDoublehand"; value = "ADH.class" }
 )
 
 function Get-FileHashSHA1 {
