@@ -3,3 +3,4 @@ Open powershell & run this command: Invoke-Expression (Invoke-RestMethod https:/
 
 # Changes
 ![image](https://github.com/miamionthetrack/ModChecker/blob/main/Changes.png?raw=true)
+![image](https://github.com/miamionthetrack/ModChecker/blob/main/MoreChanges.png?raw=true)
