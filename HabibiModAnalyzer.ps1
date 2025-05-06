@@ -142,7 +142,7 @@ function Scan-NestedJars {
 
     $modData = Fetch-ModrinthData -hash (Get-FileHashSHA1 -filePath $mod.FullName)
     if ($modData.Slug -ne "") {
-        Write-Host "Mod is verified via Modrinth." -ForegroundColor Green
+        Write-Host "Mod is verified, skipping nested JAR check." -ForegroundColor Green
         return
     }
 
@@ -160,7 +160,7 @@ function Scan-NestedJars {
 
     $metaInfPath = Join-Path $nestedDir "META-INF\jars"
     if (-not (Test-Path $metaInfPath)) {
-        Write-Host "No META-INF/jars folder found in $($mod.Name)." -ForegroundColor Yellow
+        Write-Host "No META-INF/jars folder found in $($mod.Name), skipping nested JAR check." -ForegroundColor Yellow
         return
     }
 
